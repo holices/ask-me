@@ -1,9 +1,23 @@
+import { toast } from "sonner"
 import { useParams } from "react-router-dom"
-import logoIcon from '../assets/logo-icon.svg'
 import { ArrowRight, ArrowUp, Share2 } from "lucide-react"
+
+import logoIcon from '../assets/logo-icon.svg'
 
 export function Room() {
   const { roomId } = useParams()
+
+  function handleShareRoom() { 
+    const url = window.location.href.toString()
+
+    if (navigator.share != undefined && navigator.canShare()) {
+      navigator.share({ url })
+    } else {
+      navigator.clipboard.writeText(url)
+
+      toast.info('The room URL was copied to your clipboard!')
+    }
+  }
 
   return (
     <div className="mx-auto max-w-[640px] flex flex-col gap-6 py-10 px-5">
@@ -19,7 +33,11 @@ export function Room() {
             {roomId}
           </span>
         </p>
-        <button className="flex gap-1.5 items-center text-sm font-medium px-3 py-1.5 bg-zinc-800 rounded-lg hover:bg-zinc-700">
+        <button 
+          type="submit"
+          onClick={handleShareRoom}
+          className="flex gap-1.5 items-center text-sm font-medium px-3 py-1.5 bg-zinc-800 rounded-lg hover:bg-zinc-700"
+        >
           Share
           <Share2 className="size-4" />
         </button>
