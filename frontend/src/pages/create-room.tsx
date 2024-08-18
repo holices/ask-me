@@ -10,7 +10,7 @@ export function CreateRoom() {
 
     console.log(theme)
 
-    navigate('/room/testandoarota')
+    navigate('/room/:roomId')
   }
 
 
