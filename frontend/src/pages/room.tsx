@@ -1,8 +1,9 @@
 import { toast } from "sonner"
 import { useParams } from "react-router-dom"
-import { ArrowRight, ArrowUp, Share2 } from "lucide-react"
+import { ArrowRight, Share2 } from "lucide-react"
 
 import logoIcon from '../assets/logo-icon.svg'
+import { Message } from "../components/message"
 
 export function Room() {
   const { roomId } = useParams()
@@ -60,77 +61,16 @@ export function Room() {
         </form>
 
         <ol className="list-decimal list-outside mx-3 space-y-8">
-          <li className="ml-5 text-zinc-500">
-            What is GoLang and what are its main advantages compared to other programming languages such as Python, Java or C++?
+          <Message text="What is GoLang and what are its main advantages compared to other programming languages such as Python, Java or C++?" amountOfReactions={123} answered={true} />
 
-            <button 
-              className="flex items-center gap-2 mt-3 text-sm font-medium cursor-pointer"
-              type="button"
-            >
-              <ArrowUp className="size-4" />
-              Like (123)
-            </button>
-          </li>
+          <Message text="How do goroutines work in GoLang and why are they important for concurrency and parallelism?" amountOfReactions={123} />
 
-          <li className="ml-5">
-            How do goroutines work in GoLang and why are they important for concurrency and parallelism?
+          <Message text="What are the best practices for organizing the code in a GoLang project, including packages, modules and the directory structure?" amountOfReactions={123} />
 
-            <button 
-              className="flex items-center gap-2 mt-3 text-sm font-medium cursor-pointer text-orange-400 hover:text-orange-500"
-              type="button"
-            >
-              <ArrowUp className="size-4" />
-              Like (123)
-            </button>
-          </li>
+          <Message text="How do I debug GoLang programs and what tools are recommended for this?" amountOfReactions={123} />
+          <Message text="What are the first steps to start programming in GoLang, including installing the development environment, configuring and running your first program?" amountOfReactions={123} />
 
-          <li className="ml-5">
-            What are the best practices for organizing the code in a GoLang project, including packages, modules and the directory structure?
-
-            <button 
-              className="flex items-center gap-2 mt-3 text-sm font-medium cursor-pointer text-zinc-400 hover:text-zinc-300"
-              type="button"
-            >
-              <ArrowUp className="size-4" />
-              Like (123)
-            </button>
-          </li>
-
-          <li className="ml-5">
-            How do I debug GoLang programs and what tools are recommended for this?
-
-            <button 
-              className="flex items-center gap-2 mt-3 text-sm font-medium cursor-pointer text-orange-400 hover:text-orange-500"
-              type="button"
-            >
-              <ArrowUp className="size-4" />
-              Like (123)
-            </button>
-          </li>
-
-          <li className="ml-5">
-            What are the first steps to start programming in GoLang, including installing the development environment, configuring and running your first program?
-
-            <button 
-              className="flex items-center gap-2 mt-3 text-sm font-medium cursor-pointer text-orange-400 hover:text-orange-500"
-              type="button"
-            >
-              <ArrowUp className="size-4" />
-              Like (123)
-            </button>
-          </li>
-
-          <li className="ml-5">
-            How does memory management work in GoLang, including garbage collection? What are the performance implications and how can memory usage be optimized in Go programs? What are the differences between stack and heap allocation, and how do these differences affect program efficiency?
-
-            <button 
-              className="flex items-center gap-2 mt-3 text-sm font-medium cursor-pointer text-zinc-400 hover:text-zinc-300"
-              type="button"
-            >
-              <ArrowUp className="size-4" />
-              Like (123)
-            </button>
-          </li>
+          <Message text="How does memory management work in GoLang, including garbage collection? What are the performance implications and how can memory usage be optimized in Go programs? What are the differences between stack and heap allocation, and how do these differences affect program efficiency?" amountOfReactions={123} />
         </ol>
     </div>
   )
